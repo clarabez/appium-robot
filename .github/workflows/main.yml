@@ -1,0 +1,20 @@
+name: DemoGHA
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment: 
+      name: dev
+      url: 'mariaclara.dev'
+    needs: build
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
