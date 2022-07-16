@@ -15,10 +15,6 @@ Should register new and valid user
   Click Identificação Query  Mulher
   Click Estado Query    Alagoas
 
-#   Input Search Query  Hello World!
-#   Submit Search
-#   Search Query Should Be Matching  Hello World!
-
 
 *** Keywords ***
 Open Test Application
@@ -51,15 +47,3 @@ Click Estado Query
 
 Click BotaoCadastrar
     Click Element   BotaoCadatrar
-
-Input Search Query
-  [Arguments]  ${query}
-  Input Text  txt_query_prefill  ${query}
-
-Submit Search
-  Click Element  btn_start_search
-
-Search Query Should Be Matching
-  [Arguments]  ${text}
-  Wait Until Page Contains Element  android:id/search_src_text
-  Element Text Should Be  android:id/search_src_text  ${text}
