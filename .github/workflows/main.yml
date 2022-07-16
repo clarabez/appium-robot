@@ -21,6 +21,9 @@ jobs:
         run:
           chmod +x ./scripts/RunAppiumServer.sh
           ./scripts/RunAppiumServer.sh
+      - name: Install apk on device
+        run:
+          adb install -t ./apks/app-curso-appium.apk
       - name: Run Appium Tests
         uses: reactivecircus/android-emulator-runner@v1
         with:
