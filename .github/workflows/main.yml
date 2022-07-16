@@ -7,7 +7,7 @@ jobs:
     runs-on: macos-latest
     strategy: # we are using strategy if we need to run on parallel with different devices and version
       matrix:
-        api-level: [30] #Google api level for example [25,23,28] 
+        api-level: [25] #Google api level for example [25,23,28] 
         target: [default]
     steps:
       - uses: actions/checkout@v2 #checkout the code
@@ -26,7 +26,7 @@ jobs:
         with:
           api-level: ${{ matrix.api-level }}
           target: ${{ matrix.target }}
-          arch: x86
-          profile: Pixel 5
+          arch: x86_64
+          profile: Nexus 6
           script: robot tests/testes_curso_appium.robot # Executando nossos testes
 
