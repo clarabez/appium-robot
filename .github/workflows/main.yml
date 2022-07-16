@@ -15,19 +15,24 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
       - name: Install packages
         run: pip install appium-python-client selenium robotframework-appiumlibrary
-      - name: Install and Run Appium Server
-        uses: moatazeldebsy/appium-server-gitHub-action@V1.0.4
-      - name: Run Appium Tests
-        uses: reactivecircus/android-emulator-runner@v1
-        with:
-          api-level: ${{ matrix.api-level }}
-          target: ${{ matrix.target }}
-          arch: x86_64
-          profile: Nexus 6
-          run:
-            adb install -t /apks/app-curso-appium.apk
-          script: 
-            robot tests/testesCadastrar.robot # Executando nossos testes
+      - name: Start Appium Server
+        run:
+          chmod +x ./scripts/RunAppiumServer.sh
+          ./scripts/RunAppiumServer.sh
+      # - name: Run Appium Tests
+      #   uses: reactivecircus/android-emulator-runner@v1
+      #   with:
+      #     api-level: ${{ matrix.api-level }}
+      #     target: ${{ matrix.target }}
+      #     arch: x86_64
+      #     profile: Nexus 6
+      #     run:
+      #       adb install -t /apks/app-curso-appium.apk
+      #     script: 
+      #       robot tests/testesCadastrar.robot # Executando nossos testes
 
