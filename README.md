@@ -44,7 +44,7 @@ Sugiro o uso de algum ambiente virtual (virtualenv) para isolar as bibliotecas u
 
 Clonar o projeto:
 ```
-git clone <<repositório do projeto>>
+git clone https://github.com/clarabez/appium-robot.git
 ```
 
 Instalar as dependências (com esse passo vc não precisa instalar bibliotecas individualmente, como nos 2 passos seguintes):
