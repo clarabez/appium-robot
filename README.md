@@ -44,20 +44,32 @@ Sugiro o uso de algum ambiente virtual (virtualenv) para isolar as bibliotecas u
 
 Clonar o projeto:
 ```
-git clone 
+git clone <<repositório do projeto>>
 ```
 
-Instalar as dependências:
+Instalar as dependências (com esse passo vc não precisa instalar bibliotecas individualmente, como nos 2 passos seguintes):
 ```
 pip install -r requirements.txt
 ```
 
-Instalar a biblioteca [robotframework-appiumlibrary](http://serhatbolsu.github.io/robotframework-appiumlibrary/AppiumLibrary.html):
+OU instalar as bibliotecas de forma de forma isolada.
+
+Instalar a biblioteca [robotframework-appiumlibrary](http://serhatbolsu.github.io/robotframework-appiumlibrary/AppiumLibrary.html) (não precisa se vc instalou via requirements.txt):
 ```
 pip install --upgrade robotframework-appiumlibrary
 ```
 
-Instalar o [appium-python-client](https://pypi.org/project/Appium-Python-Client/):
+Instalar o [appium-python-client](https://pypi.org/project/Appium-Python-Client/) (não precisa se vc instalou via requirements.txt):
 ```
 pip install appium-python-client
+```
+
+Para executar o projeto:
+```
+robot tests/testes_curso_appium.robot
+```
+
+Caso queira direcionar os arquivos de saída gerados pela execução, é só criar uma pasta no projeto e usar a flag -d indicando o nome da pasta:
+```
+robot -d <</pasta/logs>> tests/testes_curso_appium.robot
 ```
