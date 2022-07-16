@@ -22,22 +22,35 @@ appium-robot/
   resources/
   .gitignore
   curso.robot
+  requirements.txt
 ````
 
 <ul>
+
 - imagens: imagens do README.md
+
 - apks: aplicativos em uso no projeto.
 - resources: abstrações das telas, contendo as palavras-chave utilizadas nos fluxos de teste. Pretendo deixar 1 arquivo para cada tela.
 - tests: fluxos de teste de cada tela da aplicação.
 - .gitignore: arquivo padrão.
 - curso.robot: rascunho do início do projeto, onde deixei tudo num único arquivo e só depois fui separando as funcionalidades. Deixei no projeto porque pode ser útil par alguém.
+- requirements.txt: dependências do projeto.
 </ul>
-
-
 
 ### Passo a passo para executar o projeto
 
-Sugiro o uso de algum ambiente virtual (virtualenv)
+Sugiro o uso de algum ambiente virtual (virtualenv) para isolar as bibliotecas utilizadas aqui, mas não tem problemas iniciar o projeto sem um ambiente virtual. Mais sobre [ambientes virtuais aqui](https://realpython.com/lessons/creating-virtual-environment/).
+
+
+Clonar o projeto:
+```
+git clone 
+```
+
+Instalar as dependências:
+```
+pip install -r requirements.txt
+```
 
 Instalar a biblioteca [robotframework-appiumlibrary](http://serhatbolsu.github.io/robotframework-appiumlibrary/AppiumLibrary.html):
 ```
