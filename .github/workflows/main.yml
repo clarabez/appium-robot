@@ -19,8 +19,7 @@ jobs:
         run: pip install appium-python-client selenium robotframework-appiumlibrary
       - name: Start Appium Server
         run:
-          chmod +x ./scripts/RunAppiumServer.sh
-          ./scripts/RunAppiumServer.sh
+          appium
       - name: Run Appium Tests
         uses: reactivecircus/android-emulator-runner@v1
         with:
