@@ -1,20 +1,32 @@
-name: DemoGHA
+name: Appium
 on:
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy: # we are using strategy if we need to run on parallel with different devices and version
+      matrix:
+        api-level: [30] #Google api level for example [25,23,28] 
+        target: [default]
     steps:
-      - name: Run a one-line script
-        run: echo Hello, world!
+      - uses: actions/checkout@v2 #checkout the code
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install packages
+        run: pip install appium-python-client selenium robotframework-appiumlibrary
+      - name: Start Appium Server
+        run:
+          chmod +x ./scripts/RunAppiumServer.sh
+          ./scripts/RunAppiumServer.sh
+      - name: Run Appium Tests
+        uses: reactivecircus/android-emulator-runner@v1
+        with:
+          api-level: ${{ matrix.api-level }}
+          target: ${{ matrix.target }}
+          arch: x86
+          profile: Pixel 5
+          script: robot tests/testes_curso_appium.robot # Executando nossos testes
 
-  deploy-dev:
-    runs-on: ubuntu-latest
-    environment: 
-      name: dev
-      url: 'mariaclara.dev'
-    needs: build
-    steps:
-      - name: Run a one-line script
-        run: echo Hello, world!
