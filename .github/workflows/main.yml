@@ -4,7 +4,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-latest # tentei ubuntu mas deu erro e indicou macos por conta de processamento
     strategy: # we are using strategy if we need to run on parallel with different devices and version
       matrix:
         api-level: [25] #Google api level for example [25,23,28] 
@@ -28,7 +28,7 @@ jobs:
           target: ${{ matrix.target }}
           arch: x86_64
           profile: Nexus 6
-          run:
-            adb install -t ./apks/app-curso-appium.apk
+          script:
+            adb install -t /apks/app-curso-appium.apk
           script: robot tests/testesCadastrar.robot # Executando nossos testes
 
