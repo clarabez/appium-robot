@@ -34,6 +34,8 @@ jobs:
         run: npm install -g appium
       - name: Start Appium
         run: appium &
+      - name: Create repositories.cfg
+        run: mkdir -p .android && touch /Users/runner/.android/repositories.cfg
       - name: Run Appium Tests
         uses: reactivecircus/android-emulator-runner@v1
         with:
