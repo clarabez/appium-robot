@@ -14,35 +14,27 @@ jobs:
     steps:
       - name: Get latest code
       - uses: actions/checkout@v2
-      
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
-      
       - name: Set up Node JS
         uses: actions/setup-node@v3
         with:
           node-version: 16
-      
       - name: Clean Packages
         run: |
           rm -rf node_modules
           npm cache clean --force
           rm -rf package-lock.json
-      
       - name: Install packages
         run: pip install appium-python-client selenium==4.2.0 robotframework-appiumlibrary
-      
       - name: Install the Appium Server
         run: npm install -g appium
-      
       - name: Start Appium
         run: appium &
-      
       - name: Create repositories.cfg
         run: mkdir -p .android && touch /Users/runner/.android/repositories.cfg
-      
       - name: Run Appium Tests
         uses: reactivecircus/android-emulator-runner@v2
         with:
