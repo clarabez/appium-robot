@@ -34,21 +34,19 @@ jobs:
         run: npm install -g appium
       - name: Start Appium
         run: appium &
-      # - name: Start Appium Server
-      #   run:
-      #     chmod +x ./scripts/RunAppiumServer.sh
-      #     ./scripts/RunAppiumServer.sh
-      # - name: Run appium
-      #   run: appium
-      # - name: Run Appium Tests
-      #   uses: reactivecircus/android-emulator-runner@v1
-      #   with:
-      #     api-level: ${{ matrix.api-level }}
-      #     target: ${{ matrix.target }}
-      #     arch: x86_64
-      #     profile: Nexus 6
-      #     run:
-      #       adb install -t /apks/app-curso-appium.apk
-      #     script: 
-      #       robot tests/testesCadastrar.robot # Executando nossos testes
+      - name: Start Appium Server
+        run:
+          chmod +x ./scripts/RunAppiumServer.sh
+          ./scripts/RunAppiumServer.sh
+      - name: Run appium
+        run: appium
+      - name: Run Appium Tests
+        uses: reactivecircus/android-emulator-runner@v1
+        with:
+          api-level: ${{ matrix.api-level }}
+          target: ${{ matrix.target }}
+          arch: x86_64
+          profile: Nexus 6
+          script: 
+            robot tests/testesCadastrar.robot # Executando nossos testes
 
