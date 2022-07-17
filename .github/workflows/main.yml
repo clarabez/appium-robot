@@ -5,12 +5,12 @@ on:
 jobs:
   build:
     runs-on: macos-latest # tentei ubuntu mas deu erro e indicou macos por conta de processamento
-    strategy: # we are using strategy if we need to run on parallel with different devices and version
+    strategy: 
       matrix:
-        api-level: [25] #Google api level for example [25,23,28] 
+        api-level: [28]
         target: [default]
     steps:
-      - uses: actions/checkout@v2 #checkout the code
+      - uses: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
