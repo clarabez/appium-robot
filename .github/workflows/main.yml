@@ -33,7 +33,7 @@ jobs:
       - name: Install the Appium Server
         run: npm install -g appium
       - name: Start Appium
-        run: appium
+        run: appium &
       # - name: Start Appium Server
       #   run:
       #     chmod +x ./scripts/RunAppiumServer.sh
