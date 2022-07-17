@@ -24,6 +24,8 @@ jobs:
         run:
           chmod +x ./scripts/RunAppiumServer.sh
           ./scripts/RunAppiumServer.sh
+      - name: Run appium
+        run: appium
       # - name: Run Appium Tests
       #   uses: reactivecircus/android-emulator-runner@v1
       #   with:
