@@ -1,8 +1,7 @@
+name: Appium
 on:
-  push:
-    branches:
-      - main
-name: Run Appium tests
+  workflow_dispatch:
+
 jobs:
   build:
     runs-on: macos-latest
