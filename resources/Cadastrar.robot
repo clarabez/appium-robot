@@ -7,7 +7,7 @@ Open Session
     Open Application    http://localhost:4723/wd/hub
     ...                 platformName=Android
     ...                 deviceName=Any
-    ...                 app=${EXECDIR}/apks/app-curso-appium.apk
+    ...                 app=${EXECDIR}/apks/app-curso.apk
     ...                 appPackage=com.example.cursoappium
 
 Close Session
